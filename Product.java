@@ -1,6 +1,7 @@
 public class Product
 {
 	private String name;
+	private float price = 10;
 	
 	public Product(String name)
 	{

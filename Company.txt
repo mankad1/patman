@@ -1,6 +1,7 @@
 public class Company
 {
 	private List<Products> products;
+	private String name = "IBM";
 	
 	public Company()
 	{
