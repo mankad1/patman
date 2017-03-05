@@ -1,0 +1,9 @@
+public class Company
+{
+	private List<Products> products;
+	
+	public Company()
+	{
+		products = new ArrayList<Products>(100);
+	}
+}
