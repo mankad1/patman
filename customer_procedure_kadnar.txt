@@ -17,4 +17,17 @@ BEGIN
                        )';
     COMMIT;
   end if;
+
+SELECT count(*) into v_tabcnt
+FROM   all_sequences
+WHERE  SEQUENCE_NAME = 'SEQ_CUSTOMER' and
+         SEQUENCE_OWNER = USER;
+
+if v_tabcnt = 0 then
+    EXECUTE IMMEDIATE 'CREATE SEQUENCE SEQ_CUSTOMER
+                          START WITH 100000
+                          INCREMENT BY 1
+                          CACHE 20';
+COMMIT;
+end if;
 END CT_CUSTOMER;
