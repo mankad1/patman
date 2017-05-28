@@ -1,0 +1,17 @@
+create or replace 
+PROCEDURE
+PROC_NEW_CUSTOMER (CUSTOMER_ID out INT,
+					FIRST_NAME in VARCHAR2,
+					BALANCE in out NUMBER) IS
+BEGIN
+	Select SEQ_CUSTOMER.nextval into customer_id
+	from dual;
+	
+	if BALANCE is null then
+	select 100 into BALANCE
+	from dual;
+	end if;
+	
+	INSERT INTO CUSTOMER 
+  values (CUSTOMER_ID, FIRST_NAME, BALANCE);
+end PROC_NEW_CUSTOMER;
